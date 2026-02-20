@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AAZIR MUNIR | HARD AGENCY</title>
+    <meta name="description" content="50+ countries, 5 years nomadic. Senior AI Product Leader, Founder of Dark AI. Speaker, builder, extreme adventurer. Push past your limits." />
+    <meta property="og:title" content="AAZIR MUNIR | HARD AGENCY" />
+    <meta property="og:description" content="50+ countries, 5 years nomadic. Senior AI Product Leader, Founder of Dark AI. Speaker, builder, extreme adventurer. Push past your limits." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aazirmunir.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AAZIR MUNIR | HARD AGENCY" />
+    <meta name="twitter:description" content="50+ countries, 5 years nomadic. Senior AI Product Leader, Founder of Dark AI. Speaker, builder, extreme adventurer." />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --red: #D40000; --bg: #0A0A0A; --border: #1a1a1a; }
@@ -14,17 +23,22 @@
             font-family: 'Archivo Black', sans-serif;
             text-transform: uppercase;
             letter-spacing: -0.02em;
+            overflow-x: hidden;
         }
 
         /* Hero */
         .hero {
+            height: 100vh;
             min-height: 100vh;
+            max-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 5vw 5vw 6vw;
+            padding: 5vw 5vw 5vw;
             position: relative;
             background: var(--bg) url('assets/hero-bg.png') center/cover no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
         }
         .hero::before {
             content: '';
@@ -33,23 +47,37 @@
             background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.4) 50%, transparent 100%);
             pointer-events: none;
         }
-        .hero p, .hero h1, .hero .tag { position: relative; z-index: 1; }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+        .hero p, .hero h1, .hero .subtitle, .hero .tag { position: relative; z-index: 1; }
         .hero p {
-            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            font-size: clamp(0.85rem, 1.4vw, 1.05rem);
             color: #fff;
-            margin-bottom: 28px;
+            margin-bottom: 16px;
             letter-spacing: 0.15em;
             text-shadow: 0 1px 3px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5);
         }
         .hero h1 {
-            font-size: clamp(14vw, 16vw, 18vw);
-            line-height: 0.82;
+            font-size: clamp(10vw, 12vw, 14vw);
+            line-height: 0.88;
             letter-spacing: -0.02em;
             text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.4);
         }
+        .hero .subtitle {
+            margin-top: 14px;
+            font-size: clamp(1rem, 1.6vw, 1.3rem);
+            color: rgba(255,255,255,0.95);
+            letter-spacing: 0.12em;
+            text-transform: none;
+            font-family: 'Archivo', sans-serif;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+        }
         .hero .tag {
-            margin-top: 28px;
-            font-size: 0.85rem;
+            margin-top: 14px;
+            font-size: clamp(0.95rem, 1.35vw, 1.15rem);
             color: rgba(255,255,255,0.9);
             letter-spacing: 0.15em;
             text-transform: none;
@@ -89,12 +117,22 @@
             line-height: 1.35;
             margin-bottom: 14px;
         }
+        .proof-box a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+        .proof-box a:hover { border-bottom-color: var(--red); color: var(--red); }
 
-        /* Manifesto */
+        /* Manifesto — text left, image right */
         .manifesto {
-            padding: 4vw 5vw 5vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             background: var(--bg);
             border-bottom: 1px solid var(--border);
+        }
+        .manifesto-text {
+            padding: 4vw 5vw 5vw;
         }
         .manifesto h3 {
             font-size: clamp(1.8rem, 5vw, 4.5rem);
@@ -103,12 +141,25 @@
             max-width: 880px;
         }
         .manifesto h3:last-child { margin-bottom: 0; }
+        .manifesto-image {
+            min-height: 280px;
+            overflow: hidden;
+        }
+        .manifesto-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.6;
+        }
         .red-line { color: var(--red); }
 
         /* Banner — full-bleed image */
         .banner {
             min-height: 42vh;
             background: var(--bg) url('assets/banner.png') center/cover no-repeat;
+            background-attachment: fixed;
             position: relative;
             display: flex;
             align-items: flex-end;
@@ -125,6 +176,7 @@
             position: relative;
             z-index: 1;
             font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            line-height: 1.45;
             letter-spacing: 0.12em;
             color: #fff;
             text-shadow: 0 2px 12px rgba(0,0,0,0.8);
@@ -238,114 +290,150 @@
         }
         .btn:hover { background: #fff; color: #000; }
 
-        /* Staggered fade-in */
+        /* Load: hero only */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .hero { animation: fadeUp 0.7s ease-out both; }
-        .proof { animation: fadeUp 0.7s ease-out 0.08s both; }
-        .manifesto { animation: fadeUp 0.7s ease-out 0.14s both; }
-        .banner { animation: fadeUp 0.7s ease-out 0.16s both; }
-        .strip { animation: fadeUp 0.7s ease-out 0.2s both; }
-        .principles { animation: fadeUp 0.7s ease-out 0.24s both; }
-        .invite { animation: fadeUp 0.7s ease-out 0.28s both; }
-        footer { animation: fadeUp 0.7s ease-out 0.32s both; }
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
         @media (prefers-reduced-motion: reduce) {
-            .hero, .proof, .manifesto, .banner, .strip, .principles, .invite, footer { animation: none; }
+            .hero { animation: none; }
+            .reveal { opacity: 1; transform: none; transition: none; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 20vw; }
+            .hero { background-attachment: scroll; padding-bottom: 22vh; }
+            .banner { background-attachment: scroll; }
+            .hero h1 { font-size: 14vw; }
+            .manifesto { grid-template-columns: 1fr; }
+            .manifesto-image { min-height: 240px; }
+            .manifesto-image img { min-height: 240px; }
             .strip { grid-template-columns: 1fr; }
             .strip-item { border-right: none; border-bottom: 2px solid #fff; }
             .invite { grid-template-columns: 1fr; }
             .invite-image { min-height: 220px; }
+            .invite-content .btn-invite { min-height: 44px; padding: 14px 32px; display: inline-flex; align-items: center; justify-content: center; }
+            .btn { min-height: 44px; padding: 18px 40px; display: inline-flex; align-items: center; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <p>50+ countries · 5 years global nomad · one philosophy</p>
-        <h1>YOU CAN<br>DO ANYTHING.</h1>
-        <span class="tag">If you're willing to push.</span>
+        <div class="hero-inner">
+            <p>50+ countries · 5 years global nomad · one philosophy</p>
+            <h1>YOU CAN<br>DO ANYTHING.</h1>
+            <p class="subtitle">Push past your limits. Embrace Discomfort.</p>
+            <span class="tag">If you're willing to push.</span>
+        </div>
     </section>
 
-    <section class="proof" id="proof">
+    <section class="proof reveal" id="proof">
         <div class="proof-box">
-            <img src="assets/world.png" alt="The World" />
+            <img src="assets/world.png" alt="Safari horseback riding in African savanna with mountains and wildlife" />
             <div class="proof-content">
                 <h2>🌍 The World</h2>
                 <ul>
                     <li>50+ countries · 5 years nomad</li>
-                    <li>African safaris — horseback, self-drive, guides</li>
+                    <li>Safari Adventures — horseback, self-drive, guided</li>
                     <li>Amazon Jungle, Raja Ampat, Kalahari Desert</li>
-                <li>Freediving, snorkeling, oceans</li>
+                <li>Global capitals — New York, Tokyo, Dubai, London</li>
             </ul>
             </div>
         </div>
         <div class="proof-box">
-            <img src="assets/edge.png" alt="The Edge" />
+            <img src="assets/edge.png" alt="Freediving underwater in clear blue ocean" />
             <div class="proof-content">
                 <h2>🦈 The Edge</h2>
                 <ul>
-                    <li>Shark diving · snorkeling with sea snakes</li>
+                    <li>Shark diving · Surfing across Oceans</li>
                     <li>Skydiving · Paragliding · Volcano boarding</li>
                     <li>Desert trekking · Jungle expeditions</li>
-                <li>Open ocean swimming · Surfing globally</li>
+                <li>Endurance Training · Extreme obstacle races</li>
             </ul>
             </div>
         </div>
         <div class="proof-box">
-            <img src="assets/mind.png" alt="The Mind" />
+            <img src="assets/mind.png" alt="Library study with books and warm lighting" />
             <div class="proof-content">
                 <h2>🧠 The Mind</h2>
                 <ul>
-                    <li>Physics · Quantum mechanics</li>
+                    <li>UnderGrad · Physics </li>
                     <li>MA Philosophy — thesis on extreme adventure</li>
-                    <li>Senior AI Product Manager · 7+ years</li>
-                    <li>Founder — DarkAI · Award-winning speaker</li>
-                    <li>50+ books per year</li>
+                    <li><a href="https://www.linkedin.com/in/aazirmunir/" target="_blank" rel="noopener noreferrer">Senior AI Product Leader</a> · 7+ years</li>
+                    <li>Founder — <a href="https://darkai.ca/" target="_blank" rel="noopener noreferrer">Dark AI</a> · Award-winning speaker</li>
+                    <li><a href="https://www.goodreads.com/user/show/14018739-aazir" target="_blank" rel="noopener noreferrer">50+ books per year</a></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="manifesto">
-        <h3>Most people negotiate with fear. <span class="red-line">I lean into it.</span></h3>
-        <h3>Discomfort isn't punishment. <span class="red-line">It's training.</span></h3>
+    <section class="manifesto reveal">
+        <div class="manifesto-text">
+            <h3>Most people negotiate with fear. <span class="red-line">I lean into it.</span></h3>
+            <h3>Discomfort isn't punishment. <span class="red-line">It's training.</span></h3>
+        </div>
+        <div class="manifesto-image">
+            <img src="assets/manifesto-skull.png" alt="Outdoor portrait with animal skull in grassland" />
+        </div>
     </section>
 
-    <section class="banner">
-        <p>No ceiling. No compromise.</p>
+    <section class="banner reveal">
+        <p>I seek environments that test me —<br>desert and jungle,<br>open ocean and the edge of my own thinking.</p>
     </section>
 
-    <section class="strip">
+    <section class="strip reveal">
         <div class="strip-item" style="background-image: url('assets/sahara.png');"><span>Sahara heat</span></div>
         <div class="strip-item" style="background-image: url('assets/jungle.png');"><span>Jungle darkness</span></div>
         <div class="strip-item" style="background-image: url('assets/ocean.png');"><span>Open ocean</span></div>
     </section>
 
-    <section class="principles">
+    <section class="principles reveal">
         <div class="principle">Capacity is trained <span>01</span></div>
-        <div class="principle">Fear is directional <span>02</span></div>
+        <div class="principle">Discomfort is the signal. <span>02</span></div>
         <div class="principle">The ceiling is imagined <span>03</span></div>
     </section>
 
-    <section class="invite">
+    <section class="invite reveal">
         <div class="invite-image" aria-hidden="true"></div>
         <div class="invite-content">
             <h2>Speaker · Builder</h2>
-            <p>Keynotes, workshops, and product leadership. Award-winning speaker. Let's talk.</p>
+            <p>Keynotes, workshops, and product leadership. Award-winning speaker. Get in touch.</p>
             <a href="mailto:hello@aazirmunir.com" class="btn-invite">Get in touch</a>
         </div>
     </section>
 
-    <footer>
+    <footer class="reveal">
         <h1>You can do anything.<br>If you're willing to push.</h1>
-        <a href="mailto:hello@aazirmunir.com" class="btn">Let's talk</a>
+        <a href="mailto:hello@aazirmunir.com" class="btn">Get in touch</a>
     </footer>
 
+    <script>
+        (function() {
+            var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reducedMotion) {
+                document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('revealed'); });
+                return;
+            }
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+        })();
+    </script>
 </body>
 </html>
