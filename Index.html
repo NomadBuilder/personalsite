@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAZIR MUNIR | HARD AGENCY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root { --red: #D40000; --bg: #0A0A0A; }
+        * { margin: 0; padding: 0; box-sizing: border-box; text-transform: uppercase; }
+        
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Archivo Black', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        /* HERO: THE STATEMENT */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 5vw;
+            border-bottom: 20px solid #fff;
+        }
+
+        .hero h1 { font-size: 15vw; line-height: 0.8; margin-bottom: 20px; }
+        .hero p { font-size: 2rem; color: var(--red); margin-bottom: 40px; }
+
+        /* THE PROOF: NO FRILLS */
+        .proof {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            background: #fff;
+            color: #000;
+        }
+
+        .proof-box {
+            padding: 60px 40px;
+            border: 1px solid #000;
+        }
+
+        .proof-box h2 { font-size: 1rem; margin-bottom: 30px; letter-spacing: 2px; color: #666; }
+        .proof-box ul { list-style: none; }
+        .proof-box li { font-size: 1.8rem; line-height: 1.1; margin-bottom: 15px; }
+
+        /* THE WHY: THE MANIFESTO */
+        .manifesto {
+            padding: 10vw 5vw;
+            background: var(--bg);
+            text-align: left;
+        }
+
+        .manifesto h3 { font-size: clamp(2rem, 6vw, 6rem); line-height: 1; margin-bottom: 40px; }
+        .red-line { color: var(--red); }
+
+        /* ENVIRONMENTS: THE STRIP */
+        .strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            height: 300px;
+            border-top: 10px solid #fff;
+        }
+
+        .strip-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px solid #fff;
+            font-size: 1.5rem;
+            background: #111;
+        }
+
+        /* PRINCIPLES: THE COMMANDMENTS */
+        .principles { padding: 5vw; }
+        .principle {
+            padding: 40px 0;
+            border-bottom: 5px solid #333;
+            font-size: clamp(1.5rem, 4vw, 4rem);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .principle span { color: var(--red); }
+
+        /* FOOTER */
+        footer {
+            padding: 10vw 5vw;
+            background: #fff;
+            color: #000;
+            text-align: center;
+        }
+
+        .btn {
+            display: block;
+            background: #000;
+            color: #fff;
+            padding: 30px;
+            font-size: 2rem;
+            text-decoration: none;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 20vw; }
+            .strip { grid-template-columns: 1fr; height: auto; }
+            .strip-item { padding: 40px; border-bottom: 2px solid #fff; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <p>50+ COUNTRIES. 5-YEAR NOMAD. 1 PHILOSOPHY.</p>
+        <h1>YOU CAN<br>DO ANYTHING.</h1>
+    </section>
+
+    <section class="proof" id="proof">
+        <div class="proof-box">
+            <h2>🌍 THE WORLD</h2>
+            <ul>
+                <li>AMAZON JUNGLE</li>
+                <li>KALAHARI DESERT</li>
+                <li>RAJA AMPAT</li>
+                <li>AFRICAN SAVANNAH</li>
+            </ul>
+        </div>
+        <div class="proof-box">
+            <h2>🦈 THE EDGE</h2>
+            <ul>
+                <li>SHARK DIVING</li>
+                <li>VOLCANO BOARDING</li>
+                <li>NAKED JUNGLE TREKKING</li>
+                <li>FREE SOLOING MOUNTAINS</li>
+            </ul>
+        </div>
+        <div class="proof-box">
+            <h2>🧠 THE MIND</h2>
+            <ul>
+                <li>MA PHILOSOPHY </li>
+                <li>SENIOR AI LEADER</li>
+                <li>50+ BOOKS / YEAR</li>
+                <li>PHYSICS UNDERGRAD</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="manifesto">
+        <h3>MOST PEOPLE NEGOTIATE WITH FEAR. <span class="red-line">I LEAN INTO IT.</span></h3>
+        <h3>DISCOMFORT IS NOT PUNISHMENT. <span class="red-line">IT'S TRAINING.</span></h3>
+    </section>
+
+    <section class="strip">
+        <div class="strip-item">SAHARA HEAT</div>
+        <div class="strip-item">JUNGLE DARKNESS</div>
+        <div class="strip-item">OPEN OCEAN</div>
+    </section>
+
+    <section class="principles">
+        <div class="principle">CAPACITY IS TRAINED <span>01</span></div>
+        <div class="principle">FEAR IS DIRECTIONAL <span>02</span></div>
+        <div class="principle">THE CEILING IS IMAGINED <span>03</span></div>
+    </section>
+
+    <footer>
+        <h1>YOU CAN DO ANYTHING.<br>IF YOU ARE WILLING TO PUSH.</h1>
+        <a href="mailto:hello@aazirmunir.com" class="btn">INVITE ME</a>
+    </footer>
+
+</body>
+</html>
