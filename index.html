@@ -68,7 +68,21 @@
             font-size: clamp(10vw, 12vw, 14vw);
             line-height: 0.88;
             letter-spacing: -0.02em;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.4), 0 0 80px rgba(255,255,255,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(95deg, transparent 0%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.25) 55%, transparent 100%);
+            animation: heroShimmer 4.5s ease-in-out infinite;
+            pointer-events: none;
+            mix-blend-mode: overlay;
         }
         .hero .subtitle {
             margin-top: 14px;
@@ -77,7 +91,7 @@
             letter-spacing: 0.12em;
             text-transform: none;
             font-family: 'Archivo', sans-serif;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9), 0 0 24px rgba(255,255,255,0.08);
         }
         .hero .tag {
             margin-top: 14px;
@@ -100,6 +114,11 @@
         .proof-box {
             border: 1px solid #000;
             overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+        .proof-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
         }
         .proof-box img {
             width: 100%;
@@ -126,7 +145,7 @@
             text-decoration: none;
             border-bottom: 1px solid currentColor;
         }
-        .proof-box a:hover { border-bottom-color: var(--red); color: var(--red); }
+        .proof-box a:hover { border-bottom-color: var(--red); color: var(--red); text-shadow: 0 0 16px rgba(212,0,0,0.25); }
 
         /* Manifesto — text left, image right */
         .manifesto {
@@ -157,7 +176,10 @@
             display: block;
             opacity: 0.6;
         }
-        .red-line { color: var(--red); }
+        .red-line {
+            color: var(--red);
+            text-shadow: 0 0 20px rgba(212,0,0,0.35);
+        }
 
         /* Banner — full-bleed image */
         .banner {
@@ -190,6 +212,7 @@
         .strip {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            overflow: hidden;
         }
         .strip-item {
             display: flex;
@@ -201,6 +224,11 @@
             position: relative;
             background-size: cover;
             background-position: center;
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .strip-item:hover {
+            transform: scale(1.04);
         }
         .strip-item::before {
             content: '';
@@ -208,8 +236,21 @@
             inset: 0;
             background: rgba(0,0,0,0.55);
             pointer-events: none;
+            transition: background 0.5s ease;
         }
-        .strip-item span { position: relative; z-index: 1; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+        .strip-item:hover::before {
+            background: rgba(0,0,0,0.35);
+        }
+        .strip-item span {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), text-shadow 0.4s ease;
+        }
+        .strip-item:hover span {
+            transform: scale(1.06);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 0 24px rgba(255,255,255,0.15);
+        }
         .strip-item:last-child { border-right: none; }
 
         /* Principles */
@@ -282,9 +323,12 @@
             text-decoration: none;
             border-bottom: 1px solid var(--red);
             padding-bottom: 2px;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, text-shadow 0.3s ease, box-shadow 0.3s ease;
         }
-        .system-item a.cta:hover { opacity: 0.85; }
+        .system-item a.cta:hover { opacity: 1; text-shadow: 0 0 20px rgba(212,0,0,0.5); }
+        .system-item:hover {
+            background-color: rgba(255,255,255,0.04);
+        }
 
         /* Invite / Speaker — image + text */
         .invite {
@@ -325,9 +369,22 @@
             text-decoration: none;
             border: 2px solid var(--red);
             padding: 14px 28px;
-            transition: background 0.2s, color 0.2s;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
         }
-        .invite-content .btn-invite:hover { background: var(--red); color: #fff; }
+        .invite-content .btn-invite::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: transform 0.6s ease;
+        }
+        .invite-content .btn-invite:hover { background: var(--red); color: #fff; transform: scale(1.02); box-shadow: 0 0 28px rgba(212,0,0,0.4); }
+        .invite-content .btn-invite:hover::after { transform: translateX(400%); }
 
         /* Footer */
         footer {
@@ -353,29 +410,82 @@
             text-decoration: none;
             margin-top: 28px;
             border: 3px solid #000;
-            transition: background 0.2s, color 0.2s;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
         }
-        .btn:hover { background: #fff; color: #000; }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: transform 0.6s ease;
+        }
+        .btn:hover { background: #fff; color: #000; transform: scale(1.02); box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+        .btn:hover::after { transform: translateX(400%); }
 
-        /* Load: hero only */
+        /* Animations */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroShimmer {
+            0%, 100% { transform: translateX(0); opacity: 0.6; }
+            50% { transform: translateX(280%); opacity: 1; }
         }
         .hero { animation: fadeUp 0.7s ease-out both; }
         /* Scroll reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+            transform: translateY(32px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .reveal.revealed {
             opacity: 1;
             transform: translateY(0);
         }
+        .reveal .proof-box,
+        .reveal .principle,
+        .reveal .strip-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.revealed .proof-box,
+        .reveal.revealed .principle,
+        .reveal.revealed .strip-item { opacity: 1; transform: translateY(0); }
+        .reveal.revealed .proof-box:nth-child(1) { transition-delay: 0.05s; }
+        .reveal.revealed .proof-box:nth-child(2) { transition-delay: 0.12s; }
+        .reveal.revealed .proof-box:nth-child(3) { transition-delay: 0.19s; }
+        .reveal.revealed .principle:nth-child(1) { transition-delay: 0.05s; }
+        .reveal.revealed .principle:nth-child(2) { transition-delay: 0.12s; }
+        .reveal.revealed .principle:nth-child(3) { transition-delay: 0.19s; }
+        .reveal.revealed .strip-item:nth-child(1) { transition-delay: 0.05s; }
+        .reveal.revealed .strip-item:nth-child(2) { transition-delay: 0.12s; }
+        .reveal.revealed .strip-item:nth-child(3) { transition-delay: 0.19s; }
+        .reveal .system-item {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+        }
+        .reveal.revealed .system-item { opacity: 1; transform: translateY(0); }
+        .reveal.revealed .system-item:nth-child(1) { transition-delay: 0.06s; }
+        .reveal.revealed .system-item:nth-child(2) { transition-delay: 0.12s; }
+        .reveal.revealed .system-item:nth-child(3) { transition-delay: 0.18s; }
+        .reveal.revealed .system-item:nth-child(4) { transition-delay: 0.24s; }
         @media (prefers-reduced-motion: reduce) {
-            .hero { animation: none; }
+            .hero h1::after { display: none; }
             .reveal { opacity: 1; transform: none; transition: none; }
+            .reveal .proof-box, .reveal .principle, .reveal .strip-item, .reveal .system-item { opacity: 1; transform: none; transition: none; }
+            .proof-box:hover { transform: none; box-shadow: none; }
+            .strip-item:hover { transform: none; }
+            .strip-item:hover::before { background: rgba(0,0,0,0.55); }
+            .strip-item:hover span { transform: none; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+            .btn:hover, .invite-content .btn-invite:hover { transform: none; }
+            .btn::after, .invite-content .btn-invite::after { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -402,7 +512,7 @@
     <section class="hero">
         <div class="hero-inner">
             <p>50+ countries · 5 years global nomad · one philosophy</p>
-            <h1>YOU CAN<br>DO ANYTHING.</h1>
+            <h1>YOU<br>CAN DO<br>ANYTHING.</h1>
             <p class="subtitle">Embrace Discomfort. Push past your limits.</p>
         </div>
     </section>
