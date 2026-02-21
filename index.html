@@ -38,7 +38,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 5vw 5vw 5vw;
+            padding: 2vw 5vw 12vw;
             position: relative;
             background: var(--bg) url('assets/hero-bg.png') center/cover no-repeat;
             background-attachment: fixed;
@@ -223,6 +223,69 @@
         }
         .principle span { color: var(--red); }
 
+        /* Independent Systems — one row of 4, distinct section */
+        .systems {
+            padding: 6vw 5vw 6vw;
+            background: #111;
+            border-top: 8px solid #222;
+            border-bottom: 8px solid #222;
+        }
+        .systems-head {
+            margin-bottom: 1.5rem;
+        }
+        .systems-head h2 {
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            color: #fff;
+        }
+        .systems-head .tagline {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.1em;
+            text-transform: none;
+            font-family: 'Archivo', sans-serif;
+        }
+        .systems-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #333;
+            padding-top: 0;
+        }
+        .system-item {
+            padding: 24px 20px 0;
+            border-right: 4px solid #333;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .system-item:last-child { border-right: none; }
+        .system-item .label {
+            font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+            line-height: 1.25;
+            letter-spacing: 0.12em;
+            color: #fff;
+        }
+        .system-item .copy {
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            color: rgba(255,255,255,0.85);
+            line-height: 1.45;
+            letter-spacing: 0.02em;
+            text-transform: none;
+            font-family: 'Archivo', sans-serif;
+            flex: 1;
+        }
+        .system-item a.cta {
+            color: var(--red);
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            border-bottom: 1px solid var(--red);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+        .system-item a.cta:hover { opacity: 0.85; }
+
         /* Invite / Speaker — image + text */
         .invite {
             display: grid;
@@ -324,6 +387,9 @@
             .manifesto-image img { min-height: 240px; }
             .strip { grid-template-columns: 1fr; }
             .strip-item { border-right: none; border-bottom: 2px solid #fff; }
+            .systems-row { grid-template-columns: 1fr; }
+            .system-item { border-right: none; border-bottom: 4px solid #333; padding-bottom: 24px; }
+            .system-item:last-child { border-bottom: none; }
             .invite { grid-template-columns: 1fr; }
             .invite-image { min-height: 220px; }
             .invite-content .btn-invite { min-height: 44px; padding: 14px 32px; display: inline-flex; align-items: center; justify-content: center; }
@@ -413,6 +479,35 @@
             <h2>Speaker · Builder</h2>
             <p>Keynotes, workshops, and product leadership. Award-winning speaker. Get in touch.</p>
             <a href="mailto:hello@aazirmunir.com" class="btn-invite">Get in touch</a>
+        </div>
+    </section>
+
+    <section class="systems reveal">
+        <div class="systems-head">
+            <h2>Independent Systems</h2>
+            <p class="tagline">Ideas made real.</p>
+        </div>
+        <div class="systems-row">
+            <div class="system-item">
+                <span class="label">Protect Ontario</span>
+                <span class="copy">Mapping institutional power in public view. Opacity is a design choice. So is transparency.</span>
+                <a href="https://protectont.ca" class="cta" target="_blank" rel="noopener noreferrer">→ protectont.ca</a>
+            </div>
+            <div class="system-item">
+                <span class="label">Humangate</span>
+                <span class="copy">A lightweight enforcement layer for WordPress. Blocks AI training crawlers, adds refusal signals, and deters large-scale scraping.</span>
+                <a href="https://wordpress.org/plugins/humangate/" class="cta" target="_blank" rel="noopener noreferrer">→ Download Plugin</a>
+            </div>
+            <div class="system-item">
+                <span class="label">Dark AI</span>
+                <span class="copy">Tracking the hidden consequences of synthetic systems. Understanding precedes leverage.</span>
+                <a href="https://darkai.ca" class="cta" target="_blank" rel="noopener noreferrer">→ darkai.ca</a>
+            </div>
+            <div class="system-item">
+                <span class="label">Dark Orca</span>
+                <span class="copy">Testing digital infrastructure under real pressure. Offensive and defensive intelligence.</span>
+                <a href="mailto:hello@aazirmunir.com" class="cta">→ Contact for demo</a>
+            </div>
         </div>
     </section>
 
