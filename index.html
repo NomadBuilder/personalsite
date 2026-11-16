@@ -9,13 +9,14 @@
     <meta property="og:description" content="55+ countries, 5 years nomadic. Senior AI Product Leader, Founder of Dark AI. Speaker, builder, extreme adventurer. Push past your limits." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aazirmunir.com/" />
-    <meta property="og:image" content="https://aazirmunir.com/assets/portrait.png" />
+    <meta property="og:image" content="https://aazirmunir.com/assets/og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Aazir Munir — Speaker · Builder" />
     <meta name="twitter:description" content="55+ countries, 5 years nomadic. Senior AI Product Leader, Founder of Dark AI. Speaker, builder, extreme adventurer." />
-    <meta name="twitter:image" content="https://aazirmunir.com/assets/portrait.png" />
+    <meta name="twitter:image" content="https://aazirmunir.com/assets/og.jpg" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -83,6 +84,16 @@
             animation: heroShimmer 4.5s ease-in-out infinite;
             pointer-events: none;
             mix-blend-mode: overlay;
+        }
+        .hero .who {
+            margin-top: 16px;
+            font-size: clamp(1rem, 1.6vw, 1.25rem);
+            color: rgba(255,255,255,0.95);
+            letter-spacing: 0.06em;
+            text-transform: none;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 600;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9), 0 0 24px rgba(255,255,255,0.08);
         }
         .hero .subtitle {
             margin-top: 14px;
@@ -424,6 +435,27 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
             transition: transform 0.6s ease;
         }
+        .footer-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px 36px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+        .footer-actions .btn { margin-top: 0; }
+        .footer-link {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.12em;
+            text-transform: none;
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding: 8px 0;
+        }
+        .footer-link:hover { color: var(--red); }
         .btn:hover { background: #fff; color: #000; transform: scale(1.02); box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
         .btn:hover::after { transform: translateX(400%); }
 
@@ -513,6 +545,7 @@
         <div class="hero-inner">
             <p>55+ countries · global nomad · one philosophy</p>
             <h1>YOU<br>CAN DO<br>ANYTHING.</h1>
+            <p class="who">Aazir Munir · Speaker · Builder</p>
             <p class="subtitle">Embrace Discomfort. Push past your limits.</p>
         </div>
     </section>
@@ -578,9 +611,9 @@
     </section>
 
     <section class="principles reveal">
-        <div class="principle">Capacity is trained <span>01</span></div>
+        <div class="principle">Capacity is trained. <span>01</span></div>
         <div class="principle">Discomfort is the signal. <span>02</span></div>
-        <div class="principle">The ceiling is imagined <span>03</span></div>
+        <div class="principle">The ceiling is imagined. <span>03</span></div>
     </section>
 
     <section class="invite reveal">
@@ -623,7 +656,10 @@
 
     <footer class="reveal">
         <h1>You can do anything.<br>If you're willing to push.</h1>
-        <a href="mailto:hello@aazirmunir.com" class="btn">Get in touch</a>
+        <div class="footer-actions">
+            <a href="mailto:hello@aazirmunir.com" class="btn">Get in touch</a>
+            <a href="https://www.linkedin.com/in/aazirmunir/" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
     </footer>
 
     <script>
